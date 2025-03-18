@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nyma Forms</title>
+    <link rel="icon" href="/assets/img/Favinymaoffi.png" />
+    <link rel="stylesheet" href="assets/formstyle.css" />
+    <script
+      src="https://kit.fontawesome.com/d98f6633b8.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="image-section">
+        <img src="assets/img/favinyma1112.jpg" alt="Photo d'arrière-plan" />
+      </div>
+      <div class="form-section">
+        <div class="form-container" id="form-container">
+          <!-- Formulaire de Connexion affiché par défaut -->
+          <form id="login-form">
+            <h2>Connexion</h2>
+
+            <p id="innersign">InnerPlace</p>
+
+            <div class="input-container">
+              <input
+                type="text"
+                id="login-username"
+                placeholder="Pseudo"
+                required
+              />
+              <i class="fa-regular fa-user"></i>
+            </div>
+
+            <div class="input-container">
+              <input
+                type="password"
+                id="login-password"
+                placeholder="Mot de passe"
+                required
+              />
+              <i class="fa-regular fa-eye" id="eyes"></i>
+            </div>
+
+            <button type="submit" id="signin">Se connecter</button>
+            <p class="toggle-form">
+              Pas encore de compte ? <span id="show-register">Inscription</span>
+            </p>
+          </form>
+
+          <!-- Formulaire d'Inscription masqué par défaut -->
+          <form id="register-form" style="display: none">
+            <h2>Inscription</h2>
+            <p class="inner" id="inner">InnerPlace</p>
+
+            <div class="input-container">
+              <input type="text" id="register-username" placeholder="Pseudo" />
+              <i class="fa-regular fa-user"></i>
+            </div>
+
+            <div class="input-container">
+              <input type="email" id="register-email" placeholder="Email" />
+              <i class="fa-regular fa-envelope"></i>
+            </div>
+
+            <div class="input-container">
+              <input
+                type="password"
+                id="register-password"
+                placeholder="Mot de passe"
+              />
+              <i class="fa-regular fa-eye" id="eyestwo"></i>
+            </div>
+
+            <button type="submit" id="sign-up">S'inscrire</button>
+            <p class="toggle-form">
+              Déjà un compte ? <span id="show-login">Connexion</span>
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="LogiqScript/ScriptsigninForm.js"></script>
+  <script src="LogiqScript/ScriptLogForm.js"></script>
+  <script src="StyleScript/scriptform.js"></script>
+</html>

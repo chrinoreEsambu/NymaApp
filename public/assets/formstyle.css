@@ -1,0 +1,196 @@
+@import url("https://fonts.googleapis.com/css2?family=Matemasie&family=Moderustic:wght@300..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Matemasie&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+  outline: none;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #e6ffda;
+}
+h2 {
+  font-family: "Matemasie", sans-serif;
+}
+.inner {
+  padding: 15px;
+  border: none;
+  background-color: #000;
+  color: white;
+  border-radius: 5px;
+  text-align: center;
+  display: none;
+}
+#innersign {
+  padding: 15px;
+  border: none;
+  background-color: #000;
+  color: white;
+  border-radius: 5px;
+  text-align: center;
+  display: none;
+}
+.container {
+  display: flex;
+  width: 80%;
+  height: 80vh;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.image-section {
+  width: 50%;
+  background-color: #ddd;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  overflow: hidden;
+}
+
+.image-section img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.form-section {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.form-container {
+  width: 80%;
+  transition: transform 0.5s ease-in-out;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.input-container {
+  position: relative;
+  margin: 10px 0;
+}
+
+input {
+  padding: 15px;
+  padding-right: 40px; /* Ajoute de l'espace pour l'icône à droite */
+  border: 1px solid #000;
+  border-radius: 4px;
+  width: 100%;
+}
+
+input:focus {
+  outline: 1px solid #000;
+}
+
+i {
+  position: absolute;
+  top: 50%;
+  right: 10px; /* Position de l'icône à droite */
+  transform: translateY(-50%);
+  color: #999; /* Couleur de l'icône */
+}
+
+button {
+  padding: 15px;
+  border: none;
+  background-color: #000;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #1a1a1a;
+}
+
+.toggle-form {
+  margin-top: 10px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.toggle-form span {
+  color: #5a67d8;
+  cursor: pointer;
+}
+
+.toggle-form span:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  h2 {
+    /* text-align: center; */
+  }
+  input {
+    padding: 19px;
+  }
+  .container {
+    flex-direction: column;
+    height: auto;
+    width: 90%;
+  }
+
+  .image-section {
+    width: 100%;
+    height: 40vh;
+  }
+
+  .form-section {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .form-container {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  h2 {
+    text-align: center;
+  }
+
+  input {
+    padding: 25px;
+  }
+  .container {
+    width: 100%;
+  }
+
+  .image-section {
+    height: 20vh;
+    margin-top: -90px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+  }
+
+  .form-container {
+    width: 90%;
+  }
+
+  input,
+  button {
+    font-size: 14px;
+    padding: 16px;
+  }
+
+  .toggle-form {
+    font-size: 13px;
+  }
+}

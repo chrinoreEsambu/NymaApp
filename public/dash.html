@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Liste des Mails</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f5f5f5;
+        padding: 20px;
+      }
+      h1 {
+        text-align: center;
+        color: #333;
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+      }
+      #mailCounter {
+        text-align: center;
+        font-size: 1.2rem;
+        margin-bottom: 20px;
+        color: #555;
+      }
+      .refresh-btn {
+        display: inline-block;
+        background-color: #4caf50;
+        color: white;
+        padding: 10px 20px;
+        margin-left: 10px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1rem;
+        transition: background-color 0.3s, transform 0.2s;
+      }
+      .refresh-btn:hover {
+        background-color: #45a049;
+        transform: scale(1.05);
+      }
+      ul {
+        list-style-type: none;
+        padding: 0;
+      }
+      li {
+        background-color: #fff;
+        padding: 15px;
+        margin-bottom: 10px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: transform 0.2s;
+      }
+      li:hover {
+        transform: translateY(-2px);
+      }
+      .mail-text {
+        font-size: 1.2rem;
+        color: #333;
+      }
+      .delete-btn {
+        background-color: #ff4d4d;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 25px;
+        height: 25px;
+        cursor: pointer;
+        font-size: 1.2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: background-color 0.2s;
+      }
+      .delete-btn:hover {
+        background-color: #ff1a1a;
+      }
+      .counter-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Liste des Mails</h1>
+    <div class="counter-container">
+      <div id="mailCounter">Nombre total de mails : 0</div>
+      <button class="refresh-btn" onclick="refreshPage()">Rafraîchir</button>
+    </div>
+    <ul id="mailList"></ul>
+
+    <script>
+      // Fonction pour récupérer les mails de l'API et les afficher
+      async function fetchMails() {
+        try {
+          const response = await fetch("/getmails"); // Requête GET vers /getmails
+          const mails = await response.json(); // Conversion en JSON
+
+          // Sélectionner l'élément ul où les mails seront affichés
+          const mailList = document.getElementById("mailList");
+          const mailCounter = document.getElementById("mailCounter"); // Sélectionner l'élément du compteur
+
+          // Mettre à jour le compteur avec le nombre de mails
+          mailCounter.textContent = `Nombre total de mails : ${mails.length}`;
+
+          // Effacer les anciens mails de la liste
+          mailList.innerHTML = "";
+
+          // Pour chaque mail, créer un élément li et l'ajouter à la liste
+          mails.forEach((mail) => {
+            const li = document.createElement("li");
+            li.innerHTML = `
+                        <span class="mail-text">${mail.mail}</span>
+                        <button class="delete-btn" onclick="deleteMail('${mail._id}')">&times;</button>
+                    `;
+            mailList.appendChild(li);
+          });
+        } catch (error) {
+          console.error("Erreur lors de la récupération des mails:", error);
+        }
+      }
+
+      // Fonction pour supprimer un mail
+      async function deleteMail(mailId) {
+        if (confirm("Voulez-vous vraiment supprimer cet email ?")) {
+          try {
+            const response = await fetch(`/deletemail/${mailId}`, {
+              method: "DELETE",
+            });
+            if (response.ok) {
+              alert("Mail supprimé avec succès");
+              fetchMails(); // Recharger la liste et mettre à jour le compteur
+            } else {
+              alert("Erreur lors de la suppression");
+            }
+          } catch (error) {
+            console.error("Erreur lors de la suppression du mail:", error);
+          }
+        }
+      }
+
+      // Fonction pour rafraîchir la page
+      function refreshPage() {
+        fetchMails(); // Appel de la fonction pour recharger les mails
+      }
+
+      // Appel de la fonction pour charger les mails et le compteur au chargement de la page
+      window.onload = fetchMails;
+    </script>
+  </body>
+</html>

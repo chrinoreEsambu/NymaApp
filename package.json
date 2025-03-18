@@ -1,0 +1,21 @@
+{
+  "name": "nyma",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@tailwindcss/vite": "^4.0.6",
+    "bcrypt": "^5.1.1",
+    "bcryptjs": "^2.4.3",
+    "express": "^4.21.0",
+    "ip": "^2.0.1",
+    "mongoose": "^8.6.2",
+    "tailwindcss": "^4.0.6"
+  }
+}

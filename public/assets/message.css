@@ -1,0 +1,114 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+  outline: none;
+}
+:root {
+  --bg: #000;
+  --colorw: #fff;
+  --radius: 20px;
+  --radiusbtt: 50px;
+}
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background-image: linear-gradient(120deg, #a6c0fe 0%, #f68084 100%);
+  padding-top: 30px;
+}
+.box-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 600px;
+  padding: 20px;
+
+  border-radius: 10px;
+}
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 0 auto;
+}
+.text {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+.toptxt {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg);
+  color: var(--colorw);
+  padding: 25px;
+  border-top-left-radius: var(--radius);
+  border-top-right-radius: var(--radius);
+  width: 100%;
+}
+#Pseudonyme {
+  font-size: 15px;
+}
+#kindmessage {
+  font-weight: bold;
+}
+form textarea {
+  flex: 1;
+  resize: vertical;
+  font-size: 25px;
+  padding: 5px;
+  width: 100%;
+  margin-bottom: 15px;
+  height: 180px;
+  border: 1px solid var(--colorw);
+  border-bottom-left-radius: var(--radius);
+  border-bottom-right-radius: var(--radius);
+}
+textarea::placeholder {
+  color: #000000bd;
+  font-weight: bold;
+  font-size: 18px;
+}
+button {
+  background-color: var(--bg);
+  color: var(--colorw);
+  padding: 20px;
+  border-radius: var(--radiusbtt);
+  width: 100%;
+  font-size: 16px;
+  border: 1px solid var(--bg);
+}
+button:hover {
+  background-color: #1a1a1a;
+}
+#gif {
+  height: 21px;
+}
+.bottomtext {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -15px;
+  margin-bottom: 13px;
+  font-size: 13px;
+  color: var(--colorw);
+}
+.inner {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  background-color: #000;
+  color: white;
+  border-radius: 5px;
+  text-align: center;
+  display: none;
+  margin-top: 10px;
+}

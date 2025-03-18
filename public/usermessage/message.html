@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/assets/img/Favinymaoffi.png" />
+    <link rel="stylesheet" href="/assets/message.css" />
+    <title>messageNyma</title>
+  </head>
+  <body>
+    <form id="message-form">
+      <div class="box-section">
+        <div class="toptxt">
+          <label for="" id="Pseudonyme">@NymaAccount</label>
+          <label id="kindmessage">kind of message...</label>
+        </div>
+
+        <div class="text">
+          <textarea
+            name="content"
+            placeholder="Laisse un mot anonyme ici 🙈..."
+            id="message"
+          ></textarea>
+        </div>
+
+        <div class="bottomtext">
+          <img
+            src="../assets/img/wired-flat-946-equity-security-in-reveal.gif"
+            id="gif"
+          />
+          <label>Vos discussions restent anonymes, tout comme vous !</label>
+        </div>
+
+        <button type="submit" id="send-message">Envoyer votre message !</button>
+        <p class="inner" id="inner" style="display: none"></p>
+      </div>
+    </form>
+
+    <script src="../LogiqScript/ScriptLogmessage.js"></script>
+  </body>
+</html>
